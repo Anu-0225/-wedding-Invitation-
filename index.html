@@ -111,6 +111,9 @@ section{position:relative}
   100%{transform:translateY(-108vh) translateX(26px) scale(1.15);opacity:0}
 }
 #petals{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+
+
+
 .petal{
   position:absolute;top:-40px;width:14px;height:18px;opacity:.75;
   background:linear-gradient(135deg,#F3DCCB 0%,#E9C6B2 45%,#D9B48E 100%);
@@ -175,6 +178,7 @@ section{position:relative}
   border:1px solid rgba(194,161,94,.45);
   transform-origin:50% 46%;
   animation:coverZoomIn 1.5s cubic-bezier(.16,.84,.26,1) both;
+  animation-play-state:paused;
   transition:transform .6s var(--ease-soft), box-shadow .6s var(--ease-soft);
   -webkit-tap-highlight-color:transparent;
 }
@@ -186,6 +190,7 @@ section{position:relative}
 .invite-card:hover{transform:scale(1.015);box-shadow:0 36px 92px -34px rgba(14,44,33,.5)}
 .invite-card.zooming{
   animation:coverZoomThrough 1s cubic-bezier(.62,.02,.82,.28) both;
+  animation-play-state:running;
   pointer-events:none;
 }
 @keyframes coverZoomThrough{
@@ -230,7 +235,8 @@ section{position:relative}
 .hero-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:1.4rem}
 .chip{display:inline-flex;align-items:center;gap:.55rem;padding:.6rem 1.05rem;border-radius:999px;border:1px solid rgba(194,161,94,.42);background:rgba(255,255,255,.65);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:#6B5730;box-shadow:0 10px 24px -16px rgba(120,94,42,.5)}
 .chip i{width:5px;height:5px;transform:rotate(45deg);background:var(--gold);flex:none}
-.open-hint{margin-top:1.6rem;display:inline-flex;align-items:center;gap:.8rem;padding:.8rem 1.6rem;border-radius:999px;border:1px solid rgba(194,161,94,.5);background:rgba(255,255,255,.6);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);animation:hintPulse 2.8s ease-in-out infinite}
+.open-hint{margin-top:1.6rem;display:inline-flex;align-items:center;gap:.8rem;padding:.9rem 1.7rem;border-radius:999px;border:1px solid var(--gold-light);background:linear-gradient(120deg,#8F6B2E,#E9D5A3 48%,#9A7533);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:#241B0C;font-weight:500;box-shadow:0 0 0 3px rgba(194,161,94,.16),0 10px 28px -10px rgba(150,116,52,.85);animation:hintPulse 2.8s ease-in-out infinite}
+.open-hint .bk::before,.open-hint .bk::after{border-color:#241B0C}
 @keyframes hintPulse{0%,100%{box-shadow:0 0 0 0 rgba(194,161,94,.35)}55%{box-shadow:0 0 0 12px rgba(194,161,94,0)}}
 .open-hint .bk{width:18px;height:14px;position:relative;flex:none}
 .open-hint .bk::before,.open-hint .bk::after{content:"";position:absolute;top:0;width:8px;height:14px;border:1px solid var(--gold-deep);border-radius:1px 3px 3px 1px}
@@ -609,7 +615,7 @@ section{position:relative}
     <div class="reveal"><div class="arabic-big">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     <div class="eyebrow" style="margin-top:.4rem">The Blessed Beginning</div></div>
     <div class="orn-divider reveal"><span class="rule"></span><span class="diamond"></span><span class="diamond sm"></span><span class="diamond"></span><span class="rule r"></span></div>
-    <p class="verse reveal">“And among His signs is that He created for you spouses from among yourselves, that you may find tranquillity in them; and He placed between you affection and mercy.”</p>
+    <p class="verse reveal">“And among His signs is that Allah created for you spouses from among yourselves, that you may find tranquillity in them; and Allah placed between you affection and mercy.”</p>
     <div class="eyebrow reveal" style="margin-top:.9rem">Surah Ar-Rum · 30:21</div>
   </div>
   <span class="page-hint">Tap the page to turn ›</span>
@@ -693,7 +699,7 @@ section{position:relative}
   <div class="container-lg">
     <div style="text-align:center" class="reveal">
       <div class="orn-divider"><span class="rule"></span><span class="diamond"></span><span class="eyebrow">Bride &amp; Groom</span><span class="diamond"></span><span class="rule r"></span></div>
-      <h2 class="section-title">Two Souls, <span class="gold-text">One Amanah</span></h2>
+      <h2 class="section-title">Two Souls,<br><span class="gold-text">One Amanah</span></h2>
       <p class="lede" style="max-width:26rem;margin:.8rem auto 0">Joined in modesty and mercy — portraits kept private, blessings kept public.</p>
     </div>
     <div class="couple-grid">
@@ -708,9 +714,9 @@ section{position:relative}
       </div>
     </div>
     <div class="couple-names reveal">
-      <div class="n">Ayman Javeriya &nbsp;<span class="gold-text" style="font-style:italic">&amp;</span>&nbsp; Abdul Khadar</div>
+      <div class="n">Ayman Javeriya<br><span class="gold-text" style="font-style:italic">&amp;</span><br>Abdul Khadar</div>
       <div class="eyebrow" style="margin-top:.5rem">Together with their families</div>
-      <div class="modesty-note">🌙 In keeping with Islamic modesty, the couple have chosen no face-reveal photographs. Your duas are their most cherished gift.</div>
+      <div class="modesty-note">🌙 Kindly grace this blessed occasion with your presence and shower the couple with your duas.</div>
     </div>
   </div>
   <span class="page-hint">Tap the page to turn ›</span>
@@ -736,9 +742,6 @@ section{position:relative}
         <div><div class="d-label">Reception Time</div><div class="d-value">2:00 PM Onwards</div><div class="d-note">Join us for lunch &amp; duas</div></div>
       </div>
       <div class="time-highlight"><div class="t">2:00 PM</div><div class="l">Onwards · Tuesday, 20 October 2026</div></div>
-      <div class="event-actions">
-        <a class="btn light" href="#valima-venue"><span>Valima Venue</span></a>
-      </div>
     </div>
   </div>
   <span class="page-hint">Tap the page to turn ›</span>
@@ -891,6 +894,7 @@ function label(){
 }
 /* build the book furniture: the spine edges, the waiting stack of leaves,
    and the single curling ridge that rides whichever page is turning */
+cover.style.animationPlayState='running';
 var ridge=document.createElement('div');ridge.className='fold-ridge';book.appendChild(ridge);
 ['left','right'].forEach(function(side){
   var e=document.createElement('div');e.className='book-edges '+side;book.appendChild(e);
