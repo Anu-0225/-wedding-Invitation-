@@ -132,24 +132,7 @@ section{position:relative}
   85%{opacity:.55}
   100%{transform:translateY(-108vh) translateX(26px) scale(1.15);opacity:0}
 }
-#petals{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden}
 
-
-
-.petal{
-  position:absolute;top:-40px;width:14px;height:18px;opacity:.75;
-  background:linear-gradient(135deg,#F3DCCB 0%,#E9C6B2 45%,#D9B48E 100%);
-  border-radius:100% 4% 100% 4%;box-shadow:inset -2px -2px 4px rgba(150,110,80,.25);
-  animation:petalFall linear infinite;filter:blur(.1px);
-}
-.petal.gold{background:linear-gradient(135deg,#F6E7C3 0%,#E2CB9B 50%,#C2A15E 100%)}
-.petal.green{background:linear-gradient(135deg,#D6E2D3 0%,#A9BFAE 60%,#7F9A88 100%);opacity:.5}
-@keyframes petalFall{
-  0%{transform:translate3d(0,-5vh,0) rotate(0deg);opacity:0}
-  8%{opacity:.8}
-  50%{transform:translate3d(42px,52vh,0) rotate(185deg)}
-  100%{transform:translate3d(-34px,108vh,0) rotate(360deg);opacity:0}
-}
 .orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(2px)}
 .orb-1{width:520px;height:520px;left:50%;top:-180px;transform:translateX(-50%);background:radial-gradient(circle,rgba(226,203,155,.28),transparent 68%);animation:orbPulse 8s ease-in-out infinite}
 .orb-2{width:420px;height:420px;right:-140px;bottom:-120px;background:radial-gradient(circle,rgba(20,70,50,.12),transparent 68%)}
@@ -802,7 +785,6 @@ section{position:relative}
 <body>
 
 <div id="goldDust" aria-hidden="true"></div>
-<div id="petals" aria-hidden="true"></div>
 
 <!-- ================= NAVIGATION ================= -->
 <header class="topnav">
@@ -1128,7 +1110,6 @@ section{position:relative}
 </div>
 
 <div class="fab">
-  <button id="petalBtn" aria-label="Toggle petals" title="Petals">✿</button>
   <button id="musicBtn" aria-label="Play background music" title="Play music">🎵︎</button>
 </div>
 
@@ -1324,26 +1305,7 @@ if(dust && !reduce){
     dust.appendChild(s);
   }
 }
-var petWrap=document.getElementById('petals'), petalsOn=true;
-function seedPetals(){
-  if(!petWrap||reduce) return; petWrap.innerHTML='';
-  var c=window.innerWidth<600?10:18;
-  for(var j=0;j<c;j++){
-    var p=document.createElement('span');
-    p.className='petal'+(Math.random()<.3?' gold':(Math.random()<.5?' green':''));
-    p.style.left=(Math.random()*100)+'vw';
-    p.style.animationDuration=(Math.random()*9+9)+'s';
-    p.style.animationDelay=(Math.random()*12)+'s';
-    p.style.width=(Math.random()*6+10)+'px';
-    p.style.height=(Math.random()*7+13)+'px';
-    petWrap.appendChild(p);
-  }
-}
-seedPetals();
-window.addEventListener('resize',function(){clearTimeout(window.__pt);window.__pt=setTimeout(seedPetals,300);});
-document.getElementById('petalBtn').addEventListener('click',function(){
-  petalsOn=!petalsOn; petWrap.style.display=petalsOn?'block':'none';
-});
+
 
 /* ================= Background Music (YouTube) ================= */
 var YT_VIDEO_ID='qEgNcCpwumE'; // https://youtu.be/qEgNcCpwumE
